@@ -48,7 +48,7 @@ const Home = () => {
     <Container>
       <CartContent>
         <TextProducts>Lista de Produtos</TextProducts>
-        <CartButton onPress={navigation.navigate('Cart')}>
+        <CartButton onPress={() => navigation.navigate('Cart')}>
           <Dot>
             <View>
               <DotText>5</DotText>
