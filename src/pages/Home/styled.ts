@@ -40,3 +40,5 @@ export const DotText = styled.Text`
   font-size: 12px;
   color: black;
 `;
+
+export const List = styled.FlatList``;

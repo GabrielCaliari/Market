@@ -8,8 +8,11 @@ import {
   TO,
   TextProducts,
   CartButton,
+  List,
 } from './styled';
 import Icon from 'react-native-vector-icons/Feather';
+import Products from '../../../android/app/src/components/Products';
+import {useNavigation} from '@react-navigation/native';
 
 const Home = () => {
   const [products, setProducts] = useState([
@@ -39,13 +42,13 @@ const Home = () => {
       price: 6,
     },
   ]);
+  const navigation = useNavigation();
 
   return (
     <Container>
       <CartContent>
         <TextProducts>Lista de Produtos</TextProducts>
-
-        <CartButton>
+        <CartButton onPress={navigation.navigate('Cart')}>
           <Dot>
             <View>
               <DotText>5</DotText>
@@ -54,6 +57,12 @@ const Home = () => {
           <Icon name="shopping-cart" color="black" size={30} />
         </CartButton>
       </CartContent>
+
+      <List
+        data={products}
+        keyExtractor={item => String(item.id)}
+        renderItem={({item}) => <Products data={item} />}
+      />
     </Container>
   );
 };
