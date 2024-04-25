@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {Text, View, SafeAreaView, FlatList} from 'react-native';
 import {
   CartContent,
@@ -11,8 +11,9 @@ import {
   List,
 } from './styled';
 import Icon from 'react-native-vector-icons/Feather';
-import Products from '../../../android/app/src/components/Products';
+import Products from '../../components/Products';
 import {useNavigation} from '@react-navigation/native';
+import {CartContext} from '../../contexts/CartContext';
 
 const Home = () => {
   const [products, setProducts] = useState([
@@ -43,6 +44,7 @@ const Home = () => {
     },
   ]);
   const navigation = useNavigation();
+  const {cart} = useContext(CartContext);
 
   return (
     <Container>
@@ -51,7 +53,7 @@ const Home = () => {
         <CartButton onPress={() => navigation.navigate('Cart')}>
           <Dot>
             <View>
-              <DotText>5</DotText>
+              <DotText>{cart?.lenght ?? 0}</DotText>
             </View>
           </Dot>
           <Icon name="shopping-cart" color="black" size={30} />
