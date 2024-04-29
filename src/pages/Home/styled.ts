@@ -2,9 +2,9 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1px;
-  background-color: white;
-  padding-left: 25px;
-  padding-right: 25px;
+  background-color: #fafafa;
+  padding-left: 14px;
+  padding-right: 14px;
 `;
 
 export const CartContent = styled.View`

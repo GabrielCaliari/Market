@@ -5,12 +5,11 @@ import {
   AmountText,
   ButtonAdd,
   Container,
-  TextProducts,
   TextProductsName,
   TextProductsPrice,
 } from './styled';
 
-const CardItem = ({data, addAmount, removeItemCart}) => {
+const CardItem = ({data, addAmount, removeAmount}) => {
   const [amount, setAmount] = useState(data?.amount);
 
   const handleIncrease = () => {
@@ -18,10 +17,16 @@ const CardItem = ({data, addAmount, removeItemCart}) => {
     setAmount(item => item + 1);
   };
 
-  const removeItem = () => {
-    removeItemCart();
+  function handleDecrease() {
+    removeAmount();
+
+    if (amount === 0) {
+      setAmount(0);
+      return;
+    }
+
     setAmount(item => item - 1);
-  };
+  }
 
   return (
     <Container>
@@ -31,7 +36,7 @@ const CardItem = ({data, addAmount, removeItemCart}) => {
       </View>
 
       <AmountContainer>
-        <ButtonAdd onPress={removeItem}>
+        <ButtonAdd onPress={handleDecrease}>
           <Text>-</Text>
         </ButtonAdd>
 

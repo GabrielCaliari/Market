@@ -1,11 +1,11 @@
 import React, {useContext} from 'react';
-import {FlatList, Text, View} from 'react-native';
-import {Container} from './styled';
+import {FlatList, Text} from 'react-native';
+import {Container, TextTotal} from './styled';
 import {CartContext} from '../../contexts/CartContext';
 import CardItem from '../../components/CardItem';
 
 const Cart = () => {
-  const {cart, addItemCart, removeItemCart} = useContext(CartContext);
+  const {cart, addItemCart, removeItemCart, total} = useContext(CartContext);
 
   return (
     <Container>
@@ -13,13 +13,15 @@ const Cart = () => {
         data={cart}
         showsVerticalScrollIndicator={false}
         keyExtractor={item => String(item.id)}
+        ListEmptyComponent={() => <Text>Nenhum item no carrinho...</Text>}
         renderItem={({item}) => (
           <CardItem
             data={item}
             addAmount={() => addItemCart(item)}
-            removeItemCart={() => removeItemCart(item)}
+            removeAmount={() => removeItemCart(item)}
           />
         )}
+        ListFooterComponent={() => <TextTotal>Total: R$ {total}</TextTotal>}
       />
     </Container>
   );

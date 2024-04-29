@@ -55,11 +55,14 @@ const Home = () => {
       <CartContent>
         <TextProducts>Lista de Produtos</TextProducts>
         <CartButton onPress={() => navigation.navigate('Cart')}>
-          <Dot>
-            <View>
-              <DotText> {cart?.length}</DotText>
-            </View>
-          </Dot>
+          {cart.length >= 1 && (
+            <Dot>
+              <View>
+                <DotText> {cart?.length}</DotText>
+              </View>
+            </Dot>
+          )}
+
           <Icon name="shopping-cart" color="black" size={30} />
         </CartButton>
       </CartContent>
