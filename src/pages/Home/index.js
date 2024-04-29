@@ -44,7 +44,11 @@ const Home = () => {
     },
   ]);
   const navigation = useNavigation();
-  const {cart} = useContext(CartContext);
+  const {cart, addItemCart} = useContext(CartContext);
+
+  function handleAddCart(item) {
+    addItemCart(item);
+  }
 
   return (
     <Container>
@@ -53,7 +57,7 @@ const Home = () => {
         <CartButton onPress={() => navigation.navigate('Cart')}>
           <Dot>
             <View>
-              <DotText>{cart?.lenght ?? 0}</DotText>
+              <DotText> {cart?.length}</DotText>
             </View>
           </Dot>
           <Icon name="shopping-cart" color="black" size={30} />
@@ -63,7 +67,9 @@ const Home = () => {
       <List
         data={products}
         keyExtractor={item => String(item.id)}
-        renderItem={({item}) => <Products data={item} />}
+        renderItem={({item}) => (
+          <Products data={item} addToCart={() => handleAddCart(item)} />
+        )}
       />
     </Container>
   );

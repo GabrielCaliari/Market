@@ -33,12 +33,13 @@ export const Dot = styled.View`
   position: absolute;
   z-index: 99;
   bottom: -2px;
-  left: -4px;
+  left: -5px;
 `;
 
 export const DotText = styled.Text`
-  font-size: 12px;
+  font-size: 14px;
   color: black;
+  left: -1px;
 `;
 
 export const List = styled.FlatList``;
