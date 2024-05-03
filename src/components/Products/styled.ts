@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import coca from '../../assets/coca.png';
 
 export const Container = styled.View`
   border-width: 1px;
@@ -27,4 +28,9 @@ export const ButtonText = styled.Text`
   padding-top: 6px;
   padding-bottom: 6px;
   border-radius: 2px;
+`;
+
+export const ImagemProduct = styled.ImageBackground`
+  width: 50px;
+  height: 50px;
 `;

@@ -16,31 +16,41 @@ import {useNavigation} from '@react-navigation/native';
 import {CartContext} from '../../contexts/CartContext';
 
 const Home = () => {
+  const coca = require('../../assets/coca.png');
+  const chocolate = require('../../assets/chocolate.png');
+  const queijo = require('../../assets/queijo.png');
+  const batata = require('../../assets/batata.png');
+  const guarana = require('../../assets/guarana.png');
   const [products, setProducts] = useState([
     {
       id: '1',
       name: 'Coca-Cola',
-      price: 19.9,
+      price: 5.5,
+      image: coca,
     },
     {
       id: '2',
       name: 'Chocolate',
       price: 6.5,
+      image: chocolate,
     },
     {
       id: '3',
       name: 'Queijo 500g',
       price: 15,
+      image: queijo,
     },
     {
       id: '4',
       name: 'Batata-frita',
       price: 23.9,
+      image: batata,
     },
     {
       id: '5',
       name: 'Guarana Lata',
-      price: 6,
+      price: 5,
+      image: guarana,
     },
   ]);
   const navigation = useNavigation();
@@ -62,7 +72,6 @@ const Home = () => {
               </View>
             </Dot>
           )}
-
           <Icon name="shopping-cart" color="black" size={30} />
         </CartButton>
       </CartContent>
